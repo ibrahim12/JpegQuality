@@ -1,0 +1,24 @@
+{
+  "name": "JpegQuality",
+  "version": "0.0.1",
+  "authors": [
+    "Md. Ibrahim Rashid"
+  ],
+  "description": "Extract Quality Information From JPEG File",
+  "main": "jpeg_quality.js",
+  "keywords": [
+    "jpeg",
+    "quality",
+    "jpeg",
+    "image quality",
+    "calculate jpeg quality"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
