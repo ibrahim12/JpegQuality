@@ -47,31 +47,39 @@
 
 <div class="highlight highlight-javascript"><pre>
 <span class="pl-c">/* By Image Element */</span>
-  <span class="pl-k">var</span> image <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">"</span>img1<span class="pl-pds">"</span></span>);
 
-  JpegQuality.<span class="pl-c1">calculate</span>(image, <span class="pl-k">function</span>(<span class="pl-smi">data</span>){
-        <span class="pl-en">console</span><span class="pl-c1">.log</span>(data);  <span class="pl-c">/* { qualityNK : { quality : 90.00, type : 'approximate' }, qualityIM : { quality : 92.00, type : 'exact' }, progressive : false } */</span>
-  });
+<span class="pl-k">var</span> image <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">"</span>img1<span class="pl-pds">"</span></span>);
+
+JpegQuality.<span class="pl-c1">calculate</span>(image, <span class="pl-k">function</span>(<span class="pl-smi">data</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(data);  <span class="pl-c">/* { qualityNK : { quality : 90.00, type : 'approximate' }, qualityIM : { quality : 92.00, type : 'exact' }, progressive : false } */</span>
+});
 
 <span class="pl-c">/* By Input Files */</span>
 
-    <span class="pl-c">/* &lt;input type="file" id="file" value="select a file" /&gt; */</span>
+<span class="pl-c">/* &lt;input type="file" id="file" value="select a file" /&gt; */</span>
 
-    <span class="pl-k">var</span> fileInput <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>);
-    <span class="pl-c1">fileInput</span>.<span class="pl-en">onchange</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){
-        JpegQuality.<span class="pl-c1">calculate</span>(fileInput.<span class="pl-c1">files</span>[<span class="pl-c1">0</span>], <span class="pl-k">function</span>(<span class="pl-smi">data</span>){
-            <span class="pl-en">console</span><span class="pl-c1">.log</span>(data); <span class="pl-c">/* { qualityNK : { quality : 90.00, type : 'approximate' }, qualityIM : { quality : 92.00, type : 'exact' }, progressive : false } */</span>
-        });
+<span class="pl-k">var</span> fileInput <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>);
+<span class="pl-c1">fileInput</span>.<span class="pl-en">onchange</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){
+    JpegQuality.<span class="pl-c1">calculate</span>(fileInput.<span class="pl-c1">files</span>[<span class="pl-c1">0</span>], <span class="pl-k">function</span>(<span class="pl-smi">data</span>){
+        <span class="pl-en">console</span><span class="pl-c1">.log</span>(data); <span class="pl-c">/* { qualityNK : { quality : 90.00, type : 'approximate' }, qualityIM : { quality : 92.00, type : 'exact' }, progressive : false } */</span>
+    });
 
-    };
+};
 
 
 <span class="pl-c">/* By Blob File */</span>
 
-    JpegQuality.<span class="pl-c1">calculate</span>(blobFile, <span class="pl-k">function</span>(<span class="pl-smi">data</span>){
-        <span class="pl-en">console</span><span class="pl-c1">.log</span>(data); <span class="pl-c">/* { qualityNK : { quality : 90.00, type : 'approximate' }, qualityIM : { quality : 92.00, type : 'exact' }, progressive : false } */</span>
-    });
+JpegQuality.<span class="pl-c1">calculate</span>(blobFile, <span class="pl-k">function</span>(<span class="pl-smi">data</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(data); <span class="pl-c">/* { qualityNK : { quality : 90.00, type : 'approximate' }, qualityIM : { quality : 92.00, type : 'exact' }, progressive : false } */</span>
+});
 </pre></div>
+
+<h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<p></p>
+
+<p></p>
 
 <h3>
 <a id="references" class="anchor" href="#references" aria-hidden="true"><span class="octicon octicon-link"></span></a>References</h3>
