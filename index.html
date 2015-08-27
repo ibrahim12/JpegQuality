@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>JpegQuality by ibrahim12</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">JpegQuality</h1>
+      <h2 class="project-tagline">Extract  Quality Information From JPEG File </h2>
+      <a href="https://github.com/ibrahim12/JpegQuality" class="btn">View on GitHub</a>
+      <a href="https://github.com/ibrahim12/JpegQuality/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ibrahim12/JpegQuality/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="jpegquality" class="anchor" href="#jpegquality" aria-hidden="true"><span class="octicon octicon-link"></span></a>JpegQuality</h3>
+
+<p>Extract JPEG Quality Information from the Jpeg File. Also provides image progressive status.</p>
+
+<h3>
+<a id="how-it-works" class="anchor" href="#how-it-works" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it works</h3>
+
+<p>Jpeg quality is not stored on Meta Data. To extract the quality infomration,</p>
+
+<ul>
+<li>Extract Jpeg Quantization Tables from Jpeg File Binary.</li>
+<li>Approximate Quality Information from the Quantization Tables
+
+<ul>
+<li>
+<code>Neal Krawetz</code> Method : "For JPEG Quality &gt; 50"</li>
+<li>
+<code>ImageMagic</code> Method : "For Any JPEG Quality"</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<div class="highlight highlight-javascript"><pre>
+<span class="pl-c">/* By Image Element */</span>
+  <span class="pl-k">var</span> image <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">"</span>img1<span class="pl-pds">"</span></span>);
+
+  JpegQuality.<span class="pl-c1">calculate</span>(image, <span class="pl-k">function</span>(<span class="pl-smi">data</span>){
+        <span class="pl-en">console</span><span class="pl-c1">.log</span>(data);  <span class="pl-c">/* { qualityNK : { quality : 90.00, type : 'approximate' }, qualityIM : { quality : 92.00, type : 'exact' }, progressive : false } */</span>
+  });
+
+<span class="pl-c">/* By Input Files */</span>
+
+    <span class="pl-c">/* &lt;input type="file" id="file" value="select a file" /&gt; */</span>
+
+    <span class="pl-k">var</span> fileInput <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>file<span class="pl-pds">'</span></span>);
+    <span class="pl-c1">fileInput</span>.<span class="pl-en">onchange</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){
+        JpegQuality.<span class="pl-c1">calculate</span>(fileInput.<span class="pl-c1">files</span>[<span class="pl-c1">0</span>], <span class="pl-k">function</span>(<span class="pl-smi">data</span>){
+            <span class="pl-en">console</span><span class="pl-c1">.log</span>(data); <span class="pl-c">/* { qualityNK : { quality : 90.00, type : 'approximate' }, qualityIM : { quality : 92.00, type : 'exact' }, progressive : false } */</span>
+        });
+
+    };
+
+
+<span class="pl-c">/* By Blob File */</span>
+
+    JpegQuality.<span class="pl-c1">calculate</span>(blobFile, <span class="pl-k">function</span>(<span class="pl-smi">data</span>){
+        <span class="pl-en">console</span><span class="pl-c1">.log</span>(data); <span class="pl-c">/* { qualityNK : { quality : 90.00, type : 'approximate' }, qualityIM : { quality : 92.00, type : 'exact' }, progressive : false } */</span>
+    });
+</pre></div>
+
+<h3>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span class="octicon octicon-link"></span></a>References</h3>
+
+<p><a href="http://fotoforensics.com/tutorial-estq.php">http://fotoforensics.com/tutorial-estq.php</a></p>
+
+<p><a href="http://www.hackerfactor.com/src/jpegquality.c">http://www.hackerfactor.com/src/jpegquality.c</a>
+<a href="https://github.com/brunobar79/J-I-C">https://github.com/brunobar79/J-I-C</a>
+<a href="https://github.com/trevor/ImageMagick/blob/master/trunk/coders/jpeg.c">https://github.com/trevor/ImageMagick/blob/master/trunk/coders/jpeg.c</a></p>
+
+<p><a href="https://github.com/sindresorhus/is-progressive">https://github.com/sindresorhus/is-progressive</a></p>
+
+<ul>
+<li><p>Blender Source JPEG
+<a href="http://download.blender.org/source/chest/blender_2.03_tree/jpeg/">http://download.blender.org/source/chest/blender_2.03_tree/jpeg/</a></p></li>
+<li><p>Thanks to Exifjs for Starting Point
+<a href="https://github.com/exif-js/exif-js">https://github.com/exif-js/exif-js</a></p></li>
+</ul>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ibrahim12/JpegQuality">JpegQuality</a> is maintained by <a href="https://github.com/ibrahim12">ibrahim12</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
